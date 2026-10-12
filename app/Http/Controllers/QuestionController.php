@@ -10,7 +10,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -32,12 +32,12 @@ class QuestionController extends Controller
 		    'email' => ['required','email'],
 		    'pertanyaan' => 'required|max:300|min:8',
 		]);
-        
+
         $data['nama']       = $request->nama;
         $data['email']      = $request->email;
         $data['pertanyaan'] = $request->pertanyaan;
 
-        return view('home-question-respon', $data);
+        return redirect()->route('home-question-respon')->with('info','Data sudah berhasil di inputkan',$data);
     }
 
     /**
